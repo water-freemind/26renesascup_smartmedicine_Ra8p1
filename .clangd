@@ -1,0 +1,6 @@
+CompileFlags:
+  Add:
+    - -isystem
+    - C:/PROGRA~2/ARMGNU~1/133167~1.3RE/lib/gcc/arm-none-eabi/13.3.1/include
+    - -isystem
+    - C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include

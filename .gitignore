@@ -1,0 +1,35 @@
+# Build output
+build/
+*.o
+*.obj
+*.elf
+*.map
+*.hex
+*.bin
+*.rpd
+*.lst
+
+# IDE cache
+.cache/
+.codegraph/
+
+# Agent workspace
+.omo/
+
+# CMake generated
+compile_commands.json
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# IDE / platform
+.settings/
+.theia/
+.secure_*
+
+# Misc
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+

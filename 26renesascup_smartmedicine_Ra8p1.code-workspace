@@ -10,6 +10,7 @@
       "--query-driver=${env:ARM_GCC_TOOLCHAIN_PATH}*",
       "--compile-commands-dir=${workspaceFolder}",
       "--background-index"
-    ]
+    ],
+    "clangd.path": "${config:renesas-platform.crossProbeClangdPath}"
   }
 }

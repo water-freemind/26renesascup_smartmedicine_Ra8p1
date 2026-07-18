@@ -25,7 +25,7 @@ void hal_entry (void)
     const bsp_delay_units_t bsp_delay_units = BSP_DELAY_UNITS_MILLISECONDS;
 
     /* Set the blink frequency (must be <= bsp_delay_units / 2) */
-    const uint32_t freq_in_hz = 1;
+    const uint32_t freq_in_hz = 5;
 
     /* Calculate the delay in terms of bsp_delay_units */
     const uint32_t delay = bsp_delay_units / (freq_in_hz * 2);
