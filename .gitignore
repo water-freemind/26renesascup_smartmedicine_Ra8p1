@@ -1,0 +1,11 @@
+# Build output
+build/
+.cache/
+compile_commands.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Codegraph index
+.codegraph/
