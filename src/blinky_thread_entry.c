@@ -70,6 +70,6 @@ void blinky_thread_entry (void * pvParameters)
             pin_level = BSP_IO_LEVEL_LOW;
         }
 
-        vTaskDelay(configTICK_RATE_HZ / 2);
+        vTaskDelay(pdMS_TO_TICKS(1500));
     }
 }
