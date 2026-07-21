@@ -7,6 +7,8 @@
 FSP_HEADER
 
 #define USER_LED (BSP_IO_PORT_01_PIN_10)
+#define CAM_PWDN (BSP_IO_PORT_07_PIN_09)
+#define CAM_RST (BSP_IO_PORT_07_PIN_10)
 
 extern const ioport_cfg_t g_bsp_pin_cfg; /* RA8T2_CPKNET.pincfg */
 

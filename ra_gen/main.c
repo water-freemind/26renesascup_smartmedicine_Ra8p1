@@ -3,8 +3,8 @@
                 #include "FreeRTOS.h"
                 #include "task.h"
                 #include "semphr.h"
-                extern void blinky_thread_create(void);
-                extern TaskHandle_t blinky_thread;
+                extern void Camera_thread_create(void);
+                extern TaskHandle_t Camera_thread;
                 uint32_t g_fsp_common_thread_count;
                 bool g_fsp_common_initialized;
                 SemaphoreHandle_t g_fsp_common_initialized_semaphore;
@@ -100,7 +100,7 @@
                     }
 
                     /* Init RTOS tasks. */
-                    blinky_thread_create();
+                    Camera_thread_create();
 
                     /* Start the scheduler. */
                     vTaskStartScheduler();
