@@ -5,9 +5,9 @@
 #if 1
                 static StaticTask_t Camera_thread_memory;
                 #if defined(__ARMCC_VERSION)           /* AC6 compiler */
-                static uint8_t Camera_thread_stack[1024] BSP_PLACE_IN_SECTION(BSP_UNINIT_SECTION_PREFIX ".stack.thread") BSP_ALIGN_VARIABLE(BSP_STACK_ALIGNMENT);
+                static uint8_t Camera_thread_stack[4096] BSP_PLACE_IN_SECTION(BSP_UNINIT_SECTION_PREFIX ".stack.thread") BSP_ALIGN_VARIABLE(BSP_STACK_ALIGNMENT);
                 #else
-                static uint8_t Camera_thread_stack[1024] BSP_PLACE_IN_SECTION(BSP_UNINIT_SECTION_PREFIX ".stack.Camera_thread") BSP_ALIGN_VARIABLE(BSP_STACK_ALIGNMENT);
+                static uint8_t Camera_thread_stack[4096] BSP_PLACE_IN_SECTION(BSP_UNINIT_SECTION_PREFIX ".stack.Camera_thread") BSP_ALIGN_VARIABLE(BSP_STACK_ALIGNMENT);
                 #endif
                 #endif
                 TaskHandle_t Camera_thread;
@@ -224,7 +224,7 @@ extern uint32_t g_fsp_common_thread_count;
                     #endif
                         Camera_thread_func,
                         (const char *)"Camera",
-                        1024/4, // In words, not bytes
+                        4096/4, // In words, not bytes
                         (void *) &Camera_thread_parameters, //pvParameters
                         1,
                         #if 1

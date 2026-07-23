@@ -131,7 +131,7 @@
             (((1 > 0) ? 0U : 1U) << 16) /* CEU */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 24) /* PDM */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 26) /* CANFD1 */ | \
-            (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 27) /* CANFD0 */ | \
+            (((1 > 0) ? 0U : 1U) << 27) /* CANFD0 */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 28) /* ETHPHYCLK */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 30) /* ESWM */ | \
             (((RA_NOT_DEFINED > 0) ? 0U : 1U) << 31) /* RSIP-E50D */)

@@ -321,7 +321,7 @@
     <node id="board.clock.pll2.display" option="board.clock.pll2.display.value"/>
     <node id="board.clock.pll2p.div" option="board.clock.pll2p.div.4"/>
     <node id="board.clock.pll2p.display" option="board.clock.pll2p.display.value"/>
-    <node id="board.clock.pll2q.div" option="board.clock.pll2q.div.3"/>
+    <node id="board.clock.pll2q.div" option="board.clock.pll2q.div.2"/>
     <node id="board.clock.pll2q.display" option="board.clock.pll2q.display.value"/>
     <node id="board.clock.pll2r.div" option="board.clock.pll2r.div.5"/>
     <node id="board.clock.pll2r.display" option="board.clock.pll2r.display.value"/>
@@ -367,7 +367,7 @@
     <node id="board.clock.spiclk.source" option="board.clock.spiclk.source.disabled"/>
     <node id="board.clock.spiclk.div" option="board.clock.spiclk.div.1"/>
     <node id="board.clock.spiclk.display" option="board.clock.spiclk.display.value"/>
-    <node id="board.clock.canfdclk.source" option="board.clock.canfdclk.source.disabled"/>
+    <node id="board.clock.canfdclk.source" option="board.clock.canfdclk.source.hoco"/>
     <node id="board.clock.canfdclk.div" option="board.clock.canfdclk.div.6"/>
     <node id="board.clock.canfdclk.display" option="board.clock.canfdclk.display.value"/>
     <node id="board.clock.gptclk.source" option="board.clock.gptclk.source.disabled"/>
@@ -408,10 +408,6 @@
     <component apiversion="" class="Projects" condition="" group="all" subgroup="common" variant="" vendor="Renesas" version="6.3.0">
       <description>Common source for all template projects.</description>
       <originalPack>Renesas.RA_common.6.3.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Projects" condition="" group="all" subgroup="freertos_blinky" variant="" vendor="Renesas" version="6.3.0">
-      <description>Simple application that blinks an LED using FreeRTOS.</description>
-      <originalPack>Renesas.RA_freertos_blinky.6.3.0.pack</originalPack>
     </component>
     <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="6.3.0">
       <description>Board Support Package Common Files</description>
@@ -463,6 +459,10 @@
     </component>
     <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_gpt" variant="" vendor="Renesas" version="6.3.0">
       <description>General PWM Timer</description>
+      <originalPack>Renesas.RA.6.3.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_canfdlite" variant="" vendor="Renesas" version="6.3.0">
+      <description>Controller Area Network - Flexible Data</description>
       <originalPack>Renesas.RA.6.3.0.pack</originalPack>
     </component>
   </raComponentSelection>
@@ -577,6 +577,57 @@
       <property id="module.driver.timer.gtioca_disable_setting" value="module.driver.timer.gtioca_disable_setting.gtioc_disable_prohibited"/>
       <property id="module.driver.timer.gtiocb_disable_setting" value="module.driver.timer.gtiocb_disable_setting.gtioc_disable_prohibited"/>
     </module>
+    <module id="module.driver.canfd_on_canfdlite.1179249969">
+      <property id="module.driver.canfdlite.name" value="g_canfd0"/>
+      <property id="module.driver.canfdlite.channel" value="0"/>
+      <property id="module.driver.canfdlite.bitrate.automatic.nominal_rate" value="500000"/>
+      <property id="module.driver.canfdlite.bitrate.automatic.data_rate" value="2000000"/>
+      <property id="module.driver.canfdlite.bitrate.automatic.sample_point" value="75"/>
+      <property id="module.driver.canfdlite.bitrate.automatic.delay_compensation" value="module.driver.canfdlite.bitrate.automatic.delay_compensation.enabled"/>
+      <property id="module.driver.canfdlite.manual.nominal.prescaler" value="1"/>
+      <property id="module.driver.canfdlite.manual.nominal.time_segment_1" value="29"/>
+      <property id="module.driver.canfdlite.manual.nominal.time_segment_2" value="10"/>
+      <property id="module.driver.canfdlite.manual.nominal.sync_jump_width" value="4"/>
+      <property id="module.driver.canfdlite.manual.data.prescaler" value="1"/>
+      <property id="module.driver.canfdlite.manual.data.time_segment_1" value="5"/>
+      <property id="module.driver.canfdlite.manual.data.time_segment_2" value="2"/>
+      <property id="module.driver.canfdlite.manual.data.sync_jump_width" value="1"/>
+      <property id="module.driver.canfdlite.bitrate.manual.use_manual" value="module.driver.canfdlite.bitrate.manual.use_manual.disabled"/>
+      <property id="module.driver.canfdlite.p_callback" value="canfd0_callback"/>
+      <property id="module.driver.canfdlite.txmb.int" value=""/>
+      <property id="module.driver.canfdlite.ch_err.int" value=""/>
+      <property id="module.driver.canfdlite.ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.canfdlite.afl_array" value="p_canfd0_afl"/>
+      <property id="module.driver.canfdlite.global_err.sources" value=""/>
+      <property id="module.driver.canfdlite.tx_priority" value="module.driver.canfdlite.tx_priority.buffer"/>
+      <property id="module.driver.canfdlite.dlc_check" value="module.driver.canfdlite.dlc_check.disabled"/>
+      <property id="module.driver.canfdlite.fd.overflow" value="module.driver.canfdlite.fd.overflow.reject"/>
+      <property id="module.driver.canfdlite.rxmb.number" value="0"/>
+      <property id="module.driver.canfdlite.rxmb.size" value="module.driver.canfdlite.rxmb.size.8"/>
+      <property id="module.driver.canfdlite.int_timer_prescaler" value="0"/>
+      <property id="module.driver.canfdlite.rxfifo.0.enable" value="module.driver.canfdlite.rxfifo.0.enable.enabled"/>
+      <property id="module.driver.canfdlite.rxfifo.0.int_mode" value="enum.driver.canfd.fifo.int_mode.every_frame"/>
+      <property id="module.driver.canfdlite.rxfifo.0.int_threshold" value="enum.driver.canfd.fifo.int_threshold.1_2"/>
+      <property id="module.driver.canfdlite.rxfifo.0.payload" value="enum.driver.canfd.fifo.payload.8"/>
+      <property id="module.driver.canfdlite.rxfifo.0.depth" value="enum.driver.canfd.fifo.depth.16"/>
+      <property id="module.driver.canfdlite.rxfifo.1.enable" value="module.driver.canfdlite.rxfifo.1.enable.disabled"/>
+      <property id="module.driver.canfdlite.rxfifo.1.int_mode" value="enum.driver.canfd.fifo.int_mode.every_frame"/>
+      <property id="module.driver.canfdlite.rxfifo.1.int_threshold" value="enum.driver.canfd.fifo.int_threshold.1_2"/>
+      <property id="module.driver.canfdlite.rxfifo.1.payload" value="enum.driver.canfd.fifo.payload.8"/>
+      <property id="module.driver.canfdlite.rxfifo.1.depth" value="enum.driver.canfd.fifo.depth.16"/>
+      <property id="module.driver.canfdlite.commonfifo.0.enable" value="module.driver.canfdlite.commonfifo.0.enable.disabled"/>
+      <property id="module.driver.canfdlite.commonfifo.0.mode" value="module.driver.canfdlite.commonfifo.0.mode.rx"/>
+      <property id="module.driver.canfdlite.commonfifo.0.rxi_enable" value="module.driver.canfdlite.commonfifo.0.rxi_enable.disabled"/>
+      <property id="module.driver.canfdlite.commonfifo.0.txi_enable" value="module.driver.canfdlite.commonfifo.0.txi_enable.disabled"/>
+      <property id="module.driver.canfdlite.commonfifo.0.int_mode" value="module.driver.canfdlite.commonfifo.0.int_mode.threshold"/>
+      <property id="module.driver.canfdlite.commonfifo.0.int_threshold" value="enum.driver.canfd.fifo.int_threshold.1_2"/>
+      <property id="module.driver.canfdlite.commonfifo.0.payload" value="enum.driver.canfd.fifo.payload.8"/>
+      <property id="module.driver.canfdlite.commonfifo.0.depth" value="enum.driver.canfd.fifo.depth.16"/>
+      <property id="module.driver.canfdlite.commonfifo.0.txmb" value="module.driver.canfd.cfifo.tx_mb.0"/>
+      <property id="module.driver.canfdlite.commonfifo.0.txdelay" value="0"/>
+      <property id="module.driver.canfdlite.commonfifo.0.interval_source" value="module.driver.canfdlite.commonfifo.0.interval_source.refclk"/>
+      <property id="module.driver.canfdlite.commonfifo.0.refclk_resolution" value="module.driver.canfdlite.commonfifo.0.refclk_resolution.1"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.middleware.rm_freertos_port.0"/>
@@ -584,7 +635,7 @@
     <context id="rtos.awsfreertos.thread.1039977491">
       <property id="_symbol" value="Camera_thread"/>
       <property id="rtos.awsfreertos.thread.name" value="Camera"/>
-      <property id="rtos.awsfreertos.thread.stack" value="1024"/>
+      <property id="rtos.awsfreertos.thread.stack" value="4096"/>
       <property id="rtos.awsfreertos.thread.priority" value="1"/>
       <property id="rtos.awsfreertos.thread.context" value="NULL"/>
       <property id="rtos.awsfreertos.thread.allocation" value="rtos.awsfreertos.thread.allocation.static"/>
@@ -592,6 +643,34 @@
       <stack module="module.driver.ceu_on_capture.1742716647"/>
       <stack module="module.driver.timer_on_gpt.894114734"/>
     </context>
+    <context id="rtos.awsfreertos.thread.397126753">
+      <property id="_symbol" value="LVGL_thread"/>
+      <property id="rtos.awsfreertos.thread.name" value="LVGL"/>
+      <property id="rtos.awsfreertos.thread.stack" value="4096"/>
+      <property id="rtos.awsfreertos.thread.priority" value="1"/>
+      <property id="rtos.awsfreertos.thread.context" value="NULL"/>
+      <property id="rtos.awsfreertos.thread.allocation" value="rtos.awsfreertos.thread.allocation.static"/>
+      <property id="rtos.awsfreertos.thread.secure_context" value="rtos.awsfreertos.thread.secure_context.enable"/>
+    </context>
+    <context id="rtos.awsfreertos.thread.1335051976">
+      <property id="_symbol" value="Motor_thread"/>
+      <property id="rtos.awsfreertos.thread.name" value="Motor"/>
+      <property id="rtos.awsfreertos.thread.stack" value="2048"/>
+      <property id="rtos.awsfreertos.thread.priority" value="1"/>
+      <property id="rtos.awsfreertos.thread.context" value="NULL"/>
+      <property id="rtos.awsfreertos.thread.allocation" value="rtos.awsfreertos.thread.allocation.static"/>
+      <property id="rtos.awsfreertos.thread.secure_context" value="rtos.awsfreertos.thread.secure_context.enable"/>
+      <stack module="module.driver.canfd_on_canfdlite.1179249969"/>
+    </context>
+    <config id="config.driver.canfdlite">
+      <property id="config.driver.canfdlite.param_checking_enable" value="config.driver.canfdlite.param_checking_enable.bsp"/>
+      <property id="config.driver.canfdlite.global_err.cb_channel" value="config.driver.canfd.global_err.cb_channel.0"/>
+      <property id="config.driver.canfdlite.global_err.ipl" value="board.icu.common.irq.priority12"/>
+      <property id="config.driver.canfdlite.rxfifo.ipl" value="board.icu.common.irq.priority12"/>
+      <property id="config.driver.canfdlite.fd.protocol_exception" value="config.driver.canfdlite.fd.protocol_exception.iso"/>
+      <property id="config.driver.canfdlite.afl.ch0_num" value="16"/>
+      <property id="config.driver.canfdlite.afl.ch1_num" value="16"/>
+    </config>
     <config id="config.driver.gpt">
       <property id="config.driver.gpt.param_checking_enable" value="config.driver.gpt.param_checking_enable.bsp"/>
       <property id="config.driver.gpt.output_support_enable" value="config.driver.gpt.output_support_enable.enabled"/>
@@ -677,7 +756,7 @@
     <symbolicName propertyId="p110.symbolic_name" value="USER_LED"/>
     <symbolicName propertyId="p709.symbolic_name" value="CAM_PWDN"/>
     <symbolicName propertyId="p710.symbolic_name" value="CAM_RST"/>
-    <pincfg active="true" name="RA8T2_CPKNET.pincfg" selected="false" symbol="g_bsp_pin_cfg">
+    <pincfg active="false" name="RA8T2_CPKNET.pincfg" selected="false" symbol="g_bsp_pin_cfg">
       <configSetting altId="cgc.extal.p212" configurationId="cgc.extal"/>
       <configSetting altId="cgc.mode.custom.free" configurationId="cgc.mode"/>
       <configSetting altId="cgc.xcin.p215" configurationId="cgc.xcin"/>
@@ -1055,7 +1134,10 @@
       <configSetting altId="p211.jtag_fslash_swd.tck" configurationId="p211"/>
       <configSetting altId="p211.gpio_mode.gpio_mode_peripheral" configurationId="p211.gpio_mode"/>
     </pincfg>
-    <pincfg active="false" name="RA8P1_CPKHMI.pincfg" selected="true" symbol="">
+    <pincfg active="true" name="RA8P1_CPKHMI.pincfg" selected="true" symbol="g_bsp_pin_cfg">
+      <configSetting altId="canfd0.crx0.p402" configurationId="canfd0.crx0"/>
+      <configSetting altId="canfd0.ctx0.p704" configurationId="canfd0.ctx0"/>
+      <configSetting altId="canfd0.mode.enabled.free" configurationId="canfd0.mode"/>
       <configSetting altId="ceu.mode.custom.free" configurationId="ceu.mode"/>
       <configSetting altId="ceu.vio_clk.p414" configurationId="ceu.vio_clk"/>
       <configSetting altId="ceu.vio_d0.p400" configurationId="ceu.vio_d0"/>
@@ -1117,6 +1199,7 @@
       <configSetting altId="p108.gpio_mode.gpio_mode_irq" configurationId="p108.gpio_mode"/>
       <configSetting altId="p108.gpio_pupd.gpio_pupd_ip_up" configurationId="p108.gpio_pupd"/>
       <configSetting altId="p109.gpt10.gtioc10a" configurationId="p109"/>
+      <configSetting altId="p109.gpio_speed.gpio_speed_m" configurationId="p109.gpio_drivecapacity"/>
       <configSetting altId="p109.gpio_mode.gpio_mode_peripheral" configurationId="p109.gpio_mode"/>
       <configSetting altId="p110.output.low" configurationId="p110"/>
       <configSetting altId="p110.gpio_speed.gpio_speed_h" configurationId="p110.gpio_drivecapacity"/>
@@ -1178,6 +1261,8 @@
       <configSetting altId="p400.gpio_mode.gpio_mode_peripheral" configurationId="p400.gpio_mode"/>
       <configSetting altId="p401.ceu.vio_d1" configurationId="p401"/>
       <configSetting altId="p401.gpio_mode.gpio_mode_peripheral" configurationId="p401.gpio_mode"/>
+      <configSetting altId="p402.canfd0.crx0" configurationId="p402"/>
+      <configSetting altId="p402.gpio_mode.gpio_mode_peripheral" configurationId="p402.gpio_mode"/>
       <configSetting altId="p405.ceu.vio_d2" configurationId="p405"/>
       <configSetting altId="p405.gpio_mode.gpio_mode_peripheral" configurationId="p405.gpio_mode"/>
       <configSetting altId="p406.ceu.vio_d3" configurationId="p406"/>
@@ -1266,6 +1351,8 @@
       <configSetting altId="p702.gpio_mode.gpio_mode_peripheral" configurationId="p702.gpio_mode"/>
       <configSetting altId="p703.ceu.vio_d7" configurationId="p703"/>
       <configSetting altId="p703.gpio_mode.gpio_mode_peripheral" configurationId="p703.gpio_mode"/>
+      <configSetting altId="p704.canfd0.ctx0" configurationId="p704"/>
+      <configSetting altId="p704.gpio_mode.gpio_mode_peripheral" configurationId="p704.gpio_mode"/>
       <configSetting altId="p708.ceu.vio_vd" configurationId="p708"/>
       <configSetting altId="p708.gpio_mode.gpio_mode_peripheral" configurationId="p708.gpio_mode"/>
       <configSetting altId="p709.output.low" configurationId="p709"/>

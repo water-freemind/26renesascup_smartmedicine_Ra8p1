@@ -9,9 +9,7 @@
     "ra_gen",
     "src"
   ],
-  "excludedFilePaths": [
-    "src/blinky_thread_entry.c"
-  ],
+  "excludedFilePaths": [],
   "includePaths": [
     "ra/arm/CMSIS_6/CMSIS/Core/Include",
     "ra/aws/FreeRTOS/FreeRTOS/Source/include",

@@ -54,3 +54,10 @@ include(${CMAKE_CURRENT_LIST_DIR}/cmake/GeneratedCfg.cmake)
 # If required user can amend RASC generated flags here, e.g. list(REMOVE_ITEM RASC_CMAKE_C_FLAGS "-Wall")
 
 include(${CMAKE_CURRENT_LIST_DIR}/cmake/GeneratedSrc.cmake)
+
+# 添加 src/ 子目录到 include 路径
+target_include_directories(${PROJECT_NAME}.elf
+    PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/drive
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/app
+)
