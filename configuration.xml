@@ -319,9 +319,9 @@
     <node id="board.clock.pll2.div" option="board.clock.pll2.div.3"/>
     <node id="board.clock.pll2.mul" option="board.clock.pll2.mul.300_00"/>
     <node id="board.clock.pll2.display" option="board.clock.pll2.display.value"/>
-    <node id="board.clock.pll2p.div" option="board.clock.pll2p.div.4"/>
+    <node id="board.clock.pll2p.div" option="board.clock.pll2p.div.16"/>
     <node id="board.clock.pll2p.display" option="board.clock.pll2p.display.value"/>
-    <node id="board.clock.pll2q.div" option="board.clock.pll2q.div.2"/>
+    <node id="board.clock.pll2q.div" option="board.clock.pll2q.div.4"/>
     <node id="board.clock.pll2q.display" option="board.clock.pll2q.display.value"/>
     <node id="board.clock.pll2r.div" option="board.clock.pll2r.div.5"/>
     <node id="board.clock.pll2r.display" option="board.clock.pll2r.display.value"/>
@@ -351,7 +351,7 @@
     <node id="board.clock.bclk.div" option="board.clock.bclk.div.8"/>
     <node id="board.clock.bclk.display" option="board.clock.bclk.display.value"/>
     <node id="board.clock.bclka.source" option="board.clock.bclka.source.disabled"/>
-    <node id="board.clock.bclka.div" option="board.clock.bclka.div.6"/>
+    <node id="board.clock.bclka.div" option="board.clock.bclka.div.16"/>
     <node id="board.clock.bclka.display" option="board.clock.bclka.display.value"/>
     <node id="board.clock.sdclkout.enable" option="board.clock.sdclkout.enable.enabled"/>
     <node id="board.clock.sdclkout.display" option="board.clock.sdclkout.display.value"/>
@@ -392,7 +392,7 @@
     <node id="board.clock.octaspiclk.display" option="board.clock.octaspiclk.display.value"/>
     <node id="board.clock.octaspiclk.om_sclk.display" option="board.clock.octaspiclk.om_sclk.display.value"/>
     <node id="board.clock.adcclk.source" option="board.clock.adcclk.source.disabled"/>
-    <node id="board.clock.adcclk.div" option="board.clock.adcclk.div.4"/>
+    <node id="board.clock.adcclk.div" option="board.clock.adcclk.div.5"/>
     <node id="board.clock.adcclk.display" option="board.clock.adcclk.display.value"/>
     <node id="board.clock.eswclk.source" option="board.clock.eswclk.source.disabled"/>
     <node id="board.clock.eswclk.div" option="board.clock.eswclk.div.4"/>
@@ -596,7 +596,7 @@
       <property id="module.driver.canfdlite.p_callback" value="canfd0_callback"/>
       <property id="module.driver.canfdlite.txmb.int" value=""/>
       <property id="module.driver.canfdlite.ch_err.int" value=""/>
-      <property id="module.driver.canfdlite.ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.canfdlite.ipl" value="board.icu.common.irq.priority10"/>
       <property id="module.driver.canfdlite.afl_array" value="p_canfd0_afl"/>
       <property id="module.driver.canfdlite.global_err.sources" value=""/>
       <property id="module.driver.canfdlite.tx_priority" value="module.driver.canfdlite.tx_priority.buffer"/>
@@ -636,7 +636,7 @@
       <property id="_symbol" value="Camera_thread"/>
       <property id="rtos.awsfreertos.thread.name" value="Camera"/>
       <property id="rtos.awsfreertos.thread.stack" value="4096"/>
-      <property id="rtos.awsfreertos.thread.priority" value="1"/>
+      <property id="rtos.awsfreertos.thread.priority" value="2"/>
       <property id="rtos.awsfreertos.thread.context" value="NULL"/>
       <property id="rtos.awsfreertos.thread.allocation" value="rtos.awsfreertos.thread.allocation.static"/>
       <property id="rtos.awsfreertos.thread.secure_context" value="rtos.awsfreertos.thread.secure_context.enable"/>
@@ -646,7 +646,7 @@
     <context id="rtos.awsfreertos.thread.397126753">
       <property id="_symbol" value="LVGL_thread"/>
       <property id="rtos.awsfreertos.thread.name" value="LVGL"/>
-      <property id="rtos.awsfreertos.thread.stack" value="4096"/>
+      <property id="rtos.awsfreertos.thread.stack" value="8192"/>
       <property id="rtos.awsfreertos.thread.priority" value="1"/>
       <property id="rtos.awsfreertos.thread.context" value="NULL"/>
       <property id="rtos.awsfreertos.thread.allocation" value="rtos.awsfreertos.thread.allocation.static"/>
@@ -656,7 +656,7 @@
       <property id="_symbol" value="Motor_thread"/>
       <property id="rtos.awsfreertos.thread.name" value="Motor"/>
       <property id="rtos.awsfreertos.thread.stack" value="2048"/>
-      <property id="rtos.awsfreertos.thread.priority" value="1"/>
+      <property id="rtos.awsfreertos.thread.priority" value="3"/>
       <property id="rtos.awsfreertos.thread.context" value="NULL"/>
       <property id="rtos.awsfreertos.thread.allocation" value="rtos.awsfreertos.thread.allocation.static"/>
       <property id="rtos.awsfreertos.thread.secure_context" value="rtos.awsfreertos.thread.secure_context.enable"/>

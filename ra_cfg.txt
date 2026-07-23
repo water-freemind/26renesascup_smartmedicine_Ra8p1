@@ -275,8 +275,8 @@ FSP Configuration
     PLL2 Disabled
     PLL2 Div /3
     PLL2 Mul x280-300|Mul x300|PLL2 Mul x300.00
-    PLL2P Div /4
-    PLL2Q Div /2
+    PLL2P Div /16
+    PLL2Q Div /4
     PLL2R Div /5
     Clock Src: PLL1P
     CPUCLK Div /1
@@ -292,7 +292,7 @@ FSP Configuration
     PCLKE Div /4
     BCLK Div /8
     BCLKA Disabled
-    BCLKA Div /6
+    BCLKA Div /16
     SDCLK Enabled
     EBCLK Src: BCLK (Synchronous)
     EBCLK Disabled
@@ -318,7 +318,7 @@ FSP Configuration
     OCTACLK Disabled
     OCTACLK Div /1
     ADCCLK Disabled
-    ADCCLK Div /4
+    ADCCLK Div /5
     ESWCLK Disabled
     ESWCLK Div /4
     ESWPHYCLK Disabled
@@ -1600,7 +1600,7 @@ FSP Configuration
     Symbol: Camera_thread
     Name: Camera
     Stack size (bytes): 4096
-    Priority: 1
+    Priority: 2
     Thread Context: NULL
     Memory Allocation: Static
     Allocate Secure Context: Enable
@@ -1716,7 +1716,7 @@ FSP Configuration
     Symbol: Motor_thread
     Name: Motor
     Stack size (bytes): 2048
-    Priority: 1
+    Priority: 3
     Thread Context: NULL
     Memory Allocation: Static
     Allocate Secure Context: Enable
@@ -1740,7 +1740,7 @@ FSP Configuration
       Interrupts: Callback: canfd0_callback
       Transmit Interrupts: 
       Channel Error Interrupts: 
-      Interrupts: Channel Interrupt Priority Level: Priority 12
+      Interrupts: Channel Interrupt Priority Level: Priority 10
       Filter List Array: p_canfd0_afl
       Global Error Interrupt: Sources: 
       Transmission Priority: Buffer Number

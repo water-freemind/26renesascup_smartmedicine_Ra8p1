@@ -96,7 +96,7 @@ const can_cfg_t g_canfd0_cfg =
     .p_callback             = canfd0_callback,
     .p_extend               = &g_canfd0_extended_cfg,
     .p_context              = NULL,
-    .ipl                    = (12),
+    .ipl                    = (10),
 #if defined(VECTOR_NUMBER_CAN0_COMFRX)
     .rx_irq             = VECTOR_NUMBER_CAN0_COMFRX,
 #else
@@ -144,7 +144,7 @@ extern uint32_t g_fsp_common_thread_count;
                         (const char *)"Motor",
                         2048/4, // In words, not bytes
                         (void *) &Motor_thread_parameters, //pvParameters
-                        1,
+                        3,
                         #if 1
                         (StackType_t *)&Motor_thread_stack,
                         (StaticTask_t *)&Motor_thread_memory

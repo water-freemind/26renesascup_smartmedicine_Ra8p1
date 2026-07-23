@@ -4,9 +4,9 @@
 #if 1
                 static StaticTask_t LVGL_thread_memory;
                 #if defined(__ARMCC_VERSION)           /* AC6 compiler */
-                static uint8_t LVGL_thread_stack[4096] BSP_PLACE_IN_SECTION(BSP_UNINIT_SECTION_PREFIX ".stack.thread") BSP_ALIGN_VARIABLE(BSP_STACK_ALIGNMENT);
+                static uint8_t LVGL_thread_stack[8192] BSP_PLACE_IN_SECTION(BSP_UNINIT_SECTION_PREFIX ".stack.thread") BSP_ALIGN_VARIABLE(BSP_STACK_ALIGNMENT);
                 #else
-                static uint8_t LVGL_thread_stack[4096] BSP_PLACE_IN_SECTION(BSP_UNINIT_SECTION_PREFIX ".stack.LVGL_thread") BSP_ALIGN_VARIABLE(BSP_STACK_ALIGNMENT);
+                static uint8_t LVGL_thread_stack[8192] BSP_PLACE_IN_SECTION(BSP_UNINIT_SECTION_PREFIX ".stack.LVGL_thread") BSP_ALIGN_VARIABLE(BSP_STACK_ALIGNMENT);
                 #endif
                 #endif
                 TaskHandle_t LVGL_thread;
@@ -36,7 +36,7 @@ extern uint32_t g_fsp_common_thread_count;
                     #endif
                         LVGL_thread_func,
                         (const char *)"LVGL",
-                        4096/4, // In words, not bytes
+                        8192/4, // In words, not bytes
                         (void *) &LVGL_thread_parameters, //pvParameters
                         1,
                         #if 1

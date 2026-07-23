@@ -226,7 +226,7 @@ extern uint32_t g_fsp_common_thread_count;
                         (const char *)"Camera",
                         4096/4, // In words, not bytes
                         (void *) &Camera_thread_parameters, //pvParameters
-                        1,
+                        2,
                         #if 1
                         (StackType_t *)&Camera_thread_stack,
                         (StaticTask_t *)&Camera_thread_memory
