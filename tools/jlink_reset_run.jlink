@@ -1,0 +1,6 @@
+device R7KA8P1KF_CPU0
+si SWD
+speed 4000
+r
+g
+exit

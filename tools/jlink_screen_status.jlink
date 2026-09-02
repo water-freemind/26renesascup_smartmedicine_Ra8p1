@@ -1,0 +1,61 @@
+device R7KA8P1KF
+si SWD
+speed 4000
+connect
+mem32 0x220CBF48, 4
+mem32 0x220CBF58, 4
+mem32 0x220CBF68, 4
+mem32 0x220CBF78, 4
+mem32 0x68000000, 4
+mem32 0x68000140, 4
+mem32 0x68000280, 4
+mem32 0x680003C0, 4
+mem32 0x6812C000, 4
+mem32 0x68151800, 4
+mem32 0x68177000, 4
+mem32 0x6819C800, 4
+mem32 0x40346010, 1
+mem32 0x40346000, 1
+mem32 0x40346100, 1
+mem32 0x40346104, 1
+mem32 0x40346410, 1
+mem32 0x403465D0, 1
+mem32 0x40346610, 1
+mem32 0x40346224, 1
+mem32 0x220CBF88, 1
+mem32 0x220CBF8C, 1
+mem32 0x220CBF90, 1
+// CST816S touch polling diagnostics (current Debug map)
+mem32 0x220A6280, 1 // chip_id
+mem32 0x220A6290, 1 // probe_ok
+mem32 0x220A628C, 1 // probe_fail
+mem32 0x220A6288, 1 // read_ok
+mem32 0x220A6284, 1 // read_fail
+mem32 0x220A627C, 1 // fw_version
+mem32 0x220A6278, 1 // touch_x
+mem32 0x220A6274, 1 // touch_y
+mem32 0x220A6270, 1 // touch_pressed
+mem32 0x220A626C, 1 // touch_fingers
+mem32 0x220A6268, 1 // last_reg
+mem32 0x220A6264, 1 // error_reg
+mem32 0x220A6260, 1 // detected_address
+mem32 0x220A625C, 1 // ack_address
+// IIC0 shared-bus diagnostics (current Debug map)
+mem32 0x220A6214, 1 // last_err
+mem32 0x220A6218, 1 // addr_fail
+mem32 0x220A621C, 1 // abort_calls
+mem32 0x220A6220, 1 // timeout
+mem32 0x220A6224, 1 // init_mutex_timeout
+mem32 0x220A6228, 1 // mutex_timeout
+mem32 0x220A622C, 1 // cb_other
+mem32 0x220A6230, 1 // cb_abort
+mem32 0x220A6234, 1 // cb_rx
+mem32 0x220A6238, 1 // cb_tx
+mem32 0x220A623C, 1 // read_fail
+mem32 0x220A6240, 1 // read_calls
+mem32 0x220A6244, 1 // open_err
+// NVIC enable/priority sanity: IIC0 IRQs are 8..11
+mem32 0xE000E100, 1 // NVIC ISER0
+mem32 0xE000E400, 4 // NVIC IPR0..3 (IRQ 8..11 are in IPR2)
+mem32 0x4025E000, 12 // IIC0 registers: ICCR1..ICIER/ICDRR
+q

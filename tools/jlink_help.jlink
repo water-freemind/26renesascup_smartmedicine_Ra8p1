@@ -1,0 +1,6 @@
+device R7KA8P1KF
+si SWD
+speed 4000
+connect
+?
+q

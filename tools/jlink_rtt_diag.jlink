@@ -1,0 +1,11 @@
+device R7KA8P1KF
+si SWD
+speed 4000
+connect
+g
+sleep 5000
+halt
+mem8 0x220002E0,16
+mem32 0x220002F0,8
+mem8 0x221605E0,32
+q

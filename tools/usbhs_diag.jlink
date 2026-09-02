@@ -1,0 +1,10 @@
+device R7KA8P1KF
+si SWD
+speed 4000
+connect
+mem32 0x2215B7E8, 10
+mem32 0x220BBBA0, 4
+sleep 3000
+mem32 0x2215B7E8, 10
+mem32 0x220BBBA0, 4
+q

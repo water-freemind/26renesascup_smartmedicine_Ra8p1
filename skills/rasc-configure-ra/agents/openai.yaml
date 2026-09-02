@@ -1,0 +1,5 @@
+interface:
+  display_name: "RA Smart Configurator 配置"
+  short_description: "审查、编辑、生成和验证 RA 的 configuration.xml。"
+  default_prompt: "Use $rasc-configure-ra to safely update and validate this Renesas RA configuration.xml."
+

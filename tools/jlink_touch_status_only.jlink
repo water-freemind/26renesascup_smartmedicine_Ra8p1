@@ -1,0 +1,91 @@
+device R7KA8P1KF
+si SWD
+speed 4000
+connect
+h
+mem32 0x2216BD10, 1 // chip id
+mem32 0x2216BD18, 1 // probe ok
+mem32 0x2216BD14, 1 // probe fail
+mem32 0x2216BD0C, 1 // firmware version
+mem32 0x2216BD08, 1 // last register
+mem32 0x2216BD04, 1 // error register
+mem32 0x2216BD00, 1 // detected address
+mem32 0x2216BCFC, 1 // ack address
+// Shared IIC0 diagnostics
+mem32 0x2216BC90, 1 // last error
+mem32 0x2216BC94, 1 // address select failures
+mem32 0x2216BC98, 1 // abort calls
+mem32 0x2216BC9C, 1 // transaction timeout
+mem32 0x2216BCA0, 1 // init mutex timeout
+mem32 0x2216BCA4, 1 // bus mutex timeout
+mem32 0x2216BCA8, 1 // callback other
+mem32 0x2216BCAC, 1 // callback abort
+mem32 0x2216BCB0, 1 // callback rx
+mem32 0x2216BCB4, 1 // callback tx
+mem32 0x2216BCB8, 1 // read failures
+mem32 0x2216BCBC, 1 // read calls
+mem32 0x2216BCC0, 1 // write failures
+mem32 0x2216BCC4, 1 // write calls
+mem32 0x2216BCC8, 1 // open error
+// Camera IIC recovery diagnostics
+mem32 0x2216BC84, 1 // recovery pulses
+mem32 0x2216BC88, 1 // recovery success
+mem32 0x2216BC8C, 1 // recovery calls
+// IIC0 hardware state: ICCR1/ICCR2 and status registers
+mem32 0x4025E000, 12
+// Camera initialization/capture state (current Debug map)
+mem32 0x22117024, 1 // OV7725 PID
+mem32 0x22117004, 1 // OV7725 version
+mem32 0x22117020, 1 // last OV7725 register write
+mem32 0x22117034, 1 // OV7725 COM7
+mem32 0x22117030, 1 // OV7725 CLKRC
+mem32 0x2211702C, 1 // OV7725 COM4
+mem32 0x22117028, 1 // OV7725 COM10
+mem32 0x2211701C, 1 // OV7725 COM2
+mem32 0x22117018, 1 // OV7725 DSP_CTRL1
+mem32 0x22117014, 1 // OV7725 DSP_CTRL2
+mem32 0x22117010, 1 // OV7725 DSP_CTRL3
+mem32 0x2211700C, 1 // OV7725 COM8
+mem32 0x22117008, 1 // OV7725 DSPAUTO
+mem32 0x2216BCE0, 1 // PWDN PFS
+mem32 0x2216BCE4, 1 // RST PFS
+mem32 0x2216BCDC, 1 // actual PWDN/RST PIDR levels
+mem32 0x2216BCF0, 1 // CEU capture error
+mem32 0x2216BCF4, 1 // CEU open error
+mem32 0x220CBFE0, 1 // CEU frame count
+mem32 0x220CBFF1, 1 // camera initialized
+mem32 0x220CBFF2, 1 // capture active
+// capture requested is a file-local state and is not exported in this link
+mem32 0x220CBFF3, 1 // frame ready
+mem32 0x220CBFE4, 4 // camera init blocked/fail step/attempts
+mem32 0x2216BCEC, 1 // XCLK open error
+mem32 0x2216BCE8, 1 // XCLK start error
+mem32 0x220CBFC0, 8 // CEU event counters
+// CEU raw state: CAPSR/CAMCR/CMCYR/CAPWR/CFSZR/CDWDR/CEIER/CETCR/CSTSR
+mem32 0x40348000, 1 // CAPSR
+mem32 0x40348008, 1 // CAMCR
+mem32 0x4034800C, 1 // CMCYR
+mem32 0x40348014, 1 // CAPWR
+mem32 0x40348034, 1 // CFSZR
+mem32 0x40348038, 1 // CDWDR
+mem32 0x40348070, 1 // CEIER
+mem32 0x40348074, 1 // CETCR
+mem32 0x4034807C, 1 // CSTSR
+mem32 0x40400084, 1 // PORT4 PCNTR2: PCLK/HREF/D0-D3 input state
+mem32 0x404000E4, 1 // PORT7 PCNTR2: VSYNC/D4-D7/PWDN/RST input state
+mem32 0x404008A4, 1 // P109 PFS: XCLK output mux/readback
+mem32 0x40322A2C, 1 // GPT10 GTCR
+mem32 0x40322A64, 1 // GPT10 GTPR
+mem32 0x40322A34, 1 // GPT10 GTIOR
+mem32 0x40322A4C, 1 // GPT10 GTCCRA
+mem32 0x40322A40, 1 // GPT10 GTSTR
+// Sample camera sync inputs repeatedly; changing values prove sensor timing.
+mem32 0x404000E4, 1
+sleep 10
+mem32 0x404000E4, 1
+sleep 10
+mem32 0x404000E4, 1
+sleep 10
+mem32 0x404000E4, 1
+g
+q

@@ -1,0 +1,21 @@
+device R7KA8P1KF_CPU0
+si SWD
+speed 4000
+connect
+sleep 3000
+; Application diagnostics from build/Debug/26renesascup_smartmedicine_Ra8p1.elf.
+mem32 0x2216B76C, 7
+mem32 0x220CBEE8, 18
+; LVGL display state: logical W/H, physical W/H, rotation, matrix rotation.
+mem32 0x220CBF60, 6
+; MIPI DSI: ISR, LINKSR, TXSETR, HSCLKSETR, VMSET0/1, VMSR, VMIER,
+; VMPPSETR, vertical/horizontal timing, then PHY PLL/status.
+mem32 0x40346000, 1
+mem32 0x40346010, 1
+mem32 0x40346100, 1
+mem32 0x40346104, 1
+mem32 0x40346400, 14
+mem32 0x403465D0, 1
+mem32 0x40346610, 1
+mem32 0x40346C00, 8
+q

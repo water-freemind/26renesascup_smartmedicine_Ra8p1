@@ -1,0 +1,18 @@
+device R7KA8P1KF
+si SWD
+speed 4000
+connect
+h
+mem32 0x404000E4, 1 // P7 PIDR before
+mem32 0x404000E8, 1 // P7 PCNTR3 before (write-only readback may be zero)
+w4 0x404000E8, 0x02000000 // PORR bit9: force P709/PWDN low
+w4 0x404000E8, 0x00000400 // POSR bit10: keep P710/RST high
+mem32 0x404000E4, 1 // P7 PIDR after
+g
+sleep 1000
+h
+mem32 0x404000E4, 1 // P7 PIDR after 1s
+mem32 0x220CBFE0, 1 // CEU frame count
+mem32 0x40348000, 1 // CEU CAPSR
+g
+q

@@ -1,0 +1,10 @@
+device R7KA8P1KF
+si SWD
+speed 1000
+connect
+r
+loadfile D:\Renesas_project\26renesascup_smartmedicine_Ra8p1\build\Debug\26renesascup_smartmedicine_Ra8p1.srec
+r
+g
+sleep 8000
+q

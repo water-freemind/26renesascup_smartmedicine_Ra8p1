@@ -1,0 +1,17 @@
+CompileFlags:
+  Add:
+    - -isystem
+    - C:/PROGRA~2/ARMGNU~1/133167~1.3RE/lib/gcc/arm-none-eabi/13.3.1/include
+    - -isystem
+    - C:/PROGRA~2/ARMGNU~1/133167~1.3RE/arm-none-eabi/include
+---
+# FreeRTOS 内核头文件(atomic.h/task.h/queue.h/...)要求"先包含 FreeRTOS.h 再被引用",
+# clangd 独立解析时会触发 #error 连环报错。仅对这些头文件的独立解析预包含 FreeRTOS.h。
+# PathMatch 用 POSIX ERE(llvm::Regex), 不支持 (?!...) 前瞻, 排除 FreeRTOS.h 改用 PathExclude。
+If:
+  PathMatch: .*FreeRTOS/FreeRTOS/Source/include/.*\.h
+  PathExclude: .*FreeRTOS/FreeRTOS/Source/include/FreeRTOS\.h
+CompileFlags:
+  Add:
+    - -include
+    - D:/Renesas_project/26renesascup_smartmedicine_Ra8p1/ra/aws/FreeRTOS/FreeRTOS/Source/include/FreeRTOS.h

@@ -1,0 +1,80 @@
+device R7KA8P1KF
+si SWD
+speed 4000
+connect
+g
+; Current map addresses (regenerate this list after a layout-changing build).
+; OV7725 register readbacks.
+mem32 0x22106BC4, 1 ; VER
+mem32 0x22106BD0, 1 ; DSP_CTRL3
+mem32 0x22106BE8, 1 ; COM10
+mem32 0x22106BE4, 1 ; PID
+mem32 0x22106C00, 1 ; COM7
+mem32 0x22106BE0, 1 ; last write reg
+mem32 0x22106BC8, 1 ; DSPAUTO
+mem32 0x22106BCC, 1 ; COM8
+mem32 0x22106BD8, 1 ; DSP_CTRL1
+mem32 0x22106BDC, 1 ; COM2
+mem32 0x22106BF0, 1 ; COM3
+mem32 0x22106BF8, 1 ; COM4
+mem32 0x22106BFC, 1 ; CLKRC
+mem32 0x22106C00, 1 ; COM7 (current symbol layout)
+mem32 0x22106BEC, 1 ; COM12
+mem32 0x22106BF4, 1 ; COM1
+; GPT10 (XCLK): GTWP, GTCR, GTCNT, GTPR, GTIOR.
+mem32 0x40322A00, 1 ; GTWP
+mem32 0x40322A2C, 1 ; GTCR
+mem32 0x40322A34, 1 ; GTCNT
+mem32 0x40322A64, 1 ; GTPR
+mem32 0x40322A30, 1 ; GTIOR
+mem32 0x2215B3D4, 1 ; s_dbg_xclk_open_err
+mem32 0x2215B3D0, 1 ; s_dbg_xclk_start_err
+; PFS: use the actual per-pin addresses; these are not contiguous by signal order.
+mem32 0x40400938, 1 ; P414 PCLK
+mem32 0x4040093C, 1 ; P415 HREF
+mem32 0x40400A20, 1 ; P708 VSYNC
+mem32 0x40400900, 1 ; P400 D0
+mem32 0x40400A0C, 1 ; P703 D7
+mem32 0x40400864, 1 ; P109 XCLK PFS
+; CEU state.
+mem32 0x40348000, 1 ; CAPSR
+mem32 0x40348008, 1 ; CAMCR (VDPOL=1 expected for VSYNC_NEG)
+mem32 0x4034800C, 1 ; CMCYR
+mem32 0x4034807C, 1 ; CSTSR
+; Application CEU snapshots.
+mem32 0x2215B3C4, 1 ; s_dbg_power_levels
+mem32 0x2215B40C, 1 ; s_dbg_ceu_cap_err
+mem32 0x2215B410, 1 ; s_dbg_ceu_open_err
+mem32 0x2215B408, 1 ; s_dbg_ceu_camcr
+mem32 0x220BBBAC, 8 ; CEU event/frame/init diagnostics
+mem32 0x2215B398, 12 ; I2C callback/read/write diagnostics
+; Pin transition counters: VSYNC/HREF/PCLK/XCLK (toggles, high, low).
+; pin counters: vsync(x3), href(x3), pclk(x3), xclk(x3)
+mem32 0x2215B3D8, 12
+; Port input snapshots: P109=XCLK(bit9), P414=PCLK(bit14), P415=HREF(bit15), P708=VSYNC(bit8).
+mem32 0x40400024, 1
+mem32 0x40400084, 1
+mem32 0x404000E4, 1
+mem32 0x40400024, 1 ; PORT1 input snapshot includes P109
+sleep 10
+mem32 0x40400024, 1
+mem32 0x40400084, 1
+mem32 0x404000E4, 1
+sleep 10
+mem32 0x40400024, 1
+mem32 0x40400084, 1
+mem32 0x404000E4, 1
+; CEU event counters (other..frame_cnt).
+mem32 0x220BBB8C, 9
+; Camera init state.
+mem32 0x220BBBB0, 1 ; s_dbg_camera_init_blocked
+mem32 0x220BBBB4, 1 ; s_dbg_camera_init_fail_step
+mem32 0x220BBBB8, 1 ; s_dbg_camera_init_attempts
+sleep 3000
+mem32 0x220BBB8C, 9
+mem32 0x22041D80, 16
+mem32 0x220BBBC0, 16
+mem32 0x220E13C0, 16
+; IIC counters (recovery_pulses..open_err).
+mem32 0x2215B36C, 18
+q

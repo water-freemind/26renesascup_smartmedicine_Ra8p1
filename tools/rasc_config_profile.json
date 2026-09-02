@@ -1,0 +1,37 @@
+{
+  "target_name": "R7KA8P1KFLCAC",
+  "fsp_version": "6.3.0",
+  "cpu": "RA8P1",
+  "properties": {
+    "module.driver.mipi_dsi.num_lanes": "1",
+    "module.driver.mipi_phy.pll_mhz": "1100.0",
+    "module.driver.display.input0.hsize": "480",
+    "module.driver.display.input0.vsize": "640",
+    "module.driver.display.clock_div_ratio": "module.driver.display.clock_div_ratio.panel_clk_divisor_6",
+    "config.bsp.fsp.sdram.enabled": "config.bsp.fsp.sdram.enabled.enabled",
+    "config.lvgl.lvgl.lv_use_draw_dave2d": "config.lvgl.lvgl.lv_use_draw_dave2d.disable"
+  },
+  "pin_settings": [
+    {
+      "configuration_id": "p402",
+      "alt_id": "p402.canfd0.crx0"
+    },
+    {
+      "configuration_id": "p704",
+      "alt_id": "p704.canfd0.ctx0"
+    },
+    {
+      "configuration_id": "p814",
+      "alt_id": "p814.usbfs.usb_dp"
+    },
+    {
+      "configuration_id": "p815",
+      "alt_id": "p815.usbfs.usb_dm"
+    }
+  ],
+  "priority_order": [
+    "Motor_thread",
+    "Camera_thread",
+    "LVGL_thread"
+  ]
+}

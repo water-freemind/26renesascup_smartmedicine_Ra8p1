@@ -1,0 +1,8 @@
+device R7KA8P1KF_CPU0
+si SWD
+speed 4000
+connect
+loadfile build/Debug/26renesascup_smartmedicine_Ra8p1.srec
+r
+g
+exit
